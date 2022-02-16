@@ -2,6 +2,7 @@ version: 2.1
 jobs:
   pnd:
     machine:
+       resource_class: gpu.nvidia.small
        image: ubuntu-1604-cuda-11.1:202012-01
     parallelism: 1
     steps:
