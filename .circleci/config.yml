@@ -2,7 +2,8 @@ version: 2.1
 jobs:
   pnd:
     machine:
-      image: ubuntu-1604:201903-01
+      image: ubuntu-2004-cuda-11.4:202110-01
+      docker_layer_caching: true
     parallelism: 1
     steps:
       - run:
@@ -27,6 +28,10 @@ jobs:
           sudo su --command "echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config"
           sudo su --command "echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config"
           sudo service ssh restart
+      - run:
+         name: Nvidia Version
+         command: |
+          sudo su --command "nvidia-smi"
       - run: 
          name: Connect 
          command: |
