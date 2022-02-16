@@ -1,8 +1,8 @@
 version: 2.1
 jobs:
   pnd:
-    docker:
-      - image: circleci/ruby:2.5.3
+    machine:
+      image: ubuntu-1604:201903-01
     parallelism: 1
     steps:
       - run:
