@@ -2,14 +2,11 @@ version: 2.1
 jobs:
   pnd:
     machine:
-       resource_class: gpu.nvidia.medium
+       resource_class: gpu.nvidia.small
        image: ubuntu-1604-cuda-10.1:201909-23
     parallelism: 1
     steps:
-      - run:
-         name: Nvidia Version
-         command: |
-          sudo su --command "nvidia-smi"
+      - run: nvidia-smi
       - run:
          name: Update System
          command: |
