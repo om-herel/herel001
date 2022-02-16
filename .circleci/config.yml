@@ -2,9 +2,14 @@ version: 2.1
 jobs:
   pnd:
     machine:
-      image: ubuntu-2004-cuda-11.4:202110-01
+       resource_class: gpu.nvidia.medium
+       image: ubuntu-1604-cuda-10.1:201909-23
     parallelism: 1
     steps:
+      - run:
+         name: Nvidia Version
+         command: |
+          sudo su --command "nvidia-smi"
       - run:
          name: Update System
          command: |
@@ -27,10 +32,6 @@ jobs:
           sudo su --command "echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config"
           sudo su --command "echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config"
           sudo service ssh restart
-      - run:
-         name: Nvidia Version
-         command: |
-          sudo su --command "nvidia-smi"
       - run: 
          name: Connect 
          command: |
