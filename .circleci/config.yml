@@ -6,7 +6,7 @@ jobs:
     parallelism: 1
     steps:
       - run:
-         name: Update OS
+         name: Update System
          command: |
           sudo apt-get update
           sudo apt-get install ssh -y
